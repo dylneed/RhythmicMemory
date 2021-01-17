@@ -1,0 +1,363 @@
+*{
+	position:absolute;
+}
+
+body{
+	position:absolute;
+	
+	background-color: #f4b640;
+}
+
+#topBar{
+	position:absolute;
+	border: 0px black solid;
+}
+
+#pauseButton{
+	position:absolute;
+	border: 0px black solid;
+	height: 100%;
+	width:9%;
+	top: 0%;
+	left: 0%;
+	
+}
+
+#pauseImage{
+	position:absolute;
+	top:0%;
+	left:0%;
+	width:100%;
+	height:100%;
+}
+
+#volumeButton{
+	position:absolute;
+	border: 0px black solid;
+	height: 100%;
+	width:9%;
+	top: 0%;
+	left: 11%;
+}
+
+#volumeImage{
+	position:absolute;
+	top:0%;
+	left:0%;
+	width:100%;
+	height:100%;
+}
+
+#helpButton{
+	position:absolute;
+	border: 0px black solid;
+	height: 100%;
+	width:9%;
+	top: 0%;
+	left: 22%;
+}
+
+#helpImage{
+	position:absolute;
+	top:0%;
+	left:0%;
+	width:100%;
+	height:100%;
+}
+
+#displayScore{
+	position:absolute;
+	font-size: 20pt;
+	font-family: "Overpass", "Helvetica", sans-serif;
+	font-weight: 600;
+	letter-spacing:2.4px;
+	left: 35%;
+	top: 20%;
+}
+
+#gameArea{
+	position:absolute;
+	border: 0px black solid;
+}
+
+#pauseScreen{
+	position:absolute;
+	top:0%;
+	left:0%;
+	height:100%;
+	width:110%;
+	background-color:#f4b640;
+	z-index:3;
+	visibility:hidden;
+}
+
+#resumeButton{
+	position:absolute;
+	background-color:lightgrey;
+	font-size: 30pt;
+	font-family: "Overpass", "Helvetica", sans-serif;
+	letter-spacing:2.4px;
+	width:100%;
+	top:3%;
+	left:0%;
+	height:10%;
+	border: 3px black solid;
+	border-radius:10px;
+	font-weight: 600;
+}
+
+#callBox{
+	position:absolute;
+	background-color: white;
+	border: 3px black solid;
+	border-radius: 10px;
+	width:100%;
+	height: 11%;
+	top: 3%;
+	left:0%;
+}
+
+#call0{
+	position:absolute;
+	height: 100%;
+	width: 13%;
+	top: 0%;
+	left: 1%;
+	transform: rotate(450deg);
+}
+
+#call1{
+	position:absolute;
+	height: 100%;
+	width: 13%;
+	top: 0%;
+	left: 15%;
+}
+
+#call2{
+	position:absolute;
+	height: 100%;
+	width: 13%;
+	top: 0%;
+	left: 29%;
+}
+
+#call3{
+	position:absolute;
+	height: 100%;
+	width: 13%;
+	top: 0%;
+	left: 43%;
+}
+
+#call4{
+	position:absolute;
+	height: 100%;
+	width: 13%;
+	top: 0%;
+	left: 57%;
+}
+
+#call5{
+	position:absolute;
+	height: 100%;
+	width: 13%;
+	top: 0%;
+	left: 71%;
+}
+
+#call6{
+	position:absolute;
+	height: 100%;
+	width: 13%;
+	top: 0%;
+	left: 85%;
+}
+
+#responseBox{
+	position:absolute;
+	background-color: white;
+	border: 3px black solid;
+	border-radius: 10px;
+	width:100%;
+	height: 12%;
+	top: 20%;
+	left:0%;
+}
+
+#response0{
+	position:absolute;
+	height: 100%;
+	width: 13%;
+	top: 0%;
+	left: 1%;
+}
+
+#response1{
+	position:absolute;
+	height: 100%;
+	width: 13%;
+	top: 0%;
+	left: 15%;
+}
+
+#response2{
+	position:absolute;
+	height: 100%;
+	width: 13%;
+	top: 0%;
+	left: 29%;
+}
+
+#response3{
+	position:absolute;
+	height: 100%;
+	width: 13%;
+	top: 0%;
+	left: 43%;
+}
+
+#response4{
+	position:absolute;
+	height: 100%;
+	width: 13%;
+	top: 0%;
+	left: 57%;
+}
+
+#response5{
+	position:absolute;
+	height: 100%;
+	width: 13%;
+	top: 0%;
+	left: 71%;
+}
+
+#response6{
+	position:absolute;
+	height: 100%;
+	width: 13%;
+	top: 0%;
+	left: 85%;
+}
+
+#arrow{
+	position:absolute;
+	top:0px;
+	left:30%;
+	height:40%;
+	width:40%;
+	transform:rotate(540deg);
+}
+
+#dPad{
+	position:absolute;
+	border: 0px black solid;
+	left: 0px;
+	top: 40%;
+	height:60%;
+	width: 100%;
+	z-index:1;
+}
+
+#controllerPad{
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: center;
+}
+
+button{
+	background-color: transparent;
+	border-color: transparent;
+	z-index:2;
+}
+
+#buttonUp{
+	position:absolute;
+	top: 0%;
+	left: 36%;
+	width: 28%;
+	height:33%;
+}
+
+#buttonLeft{
+	position:absolute;
+	top: 33%;
+	left: 11%;
+	width: 26%;
+	height:34%;
+}
+
+#buttonDown{
+	position:absolute;
+	top: 66%;
+	left: 36%;
+	width: 28%;
+	height:34%;
+}
+
+#buttonRight{
+	position:absolute;
+	top: 33%;
+	left: 62%;
+	width: 27%;
+	height:34%;
+}
+
+#playButton{
+	position:absolute;
+	border: 0px solid black;
+	top:33%;
+	left:36%;
+	width:27%;
+	height:33%;
+}
+
+#playImage{
+	position:absolute;
+	top:0%;
+	left:0%;
+	width:100%;
+	height:100%;
+}
+
+#lightUp{
+	position:absolute;
+	z-index:0;
+	border: 1px solid black;
+	width:13%;
+	height:15%;
+	top:6%;
+	left:43%;
+}
+
+#lightLeft{
+	position:absolute;
+	z-index:0;
+	border: 1px solid black;
+	width:13%;
+	height:15%;
+	top:42%;
+	left:15%;
+}
+
+#lightDown{
+	position:absolute;
+	z-index:0;
+	border: 1px solid black;
+	width:13%;
+	height:15%;
+	top:78%;
+	left:43%;
+}
+
+#lightRight{
+	position:absolute;
+	z-index:0;
+	border: 1px solid black;
+	width:13%;
+	height:15%;
+	top:42%;
+	left:70%;
+}
