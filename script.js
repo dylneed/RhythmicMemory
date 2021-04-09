@@ -1,5 +1,22 @@
 var displayScore;
 
+var C5;
+var Db5;
+var D5;
+var Eb5;
+var E5;
+var F5;
+var Gb5;
+var G5;
+var Ab5;
+var A5;
+var Bb5;
+var B5;
+var C6;
+var wrongSound;
+var soundType;
+
+
 var call0;
 var call1;
 var call2;
@@ -77,6 +94,27 @@ function init() {
 	mute = false;
 	
 	resumeButton = document.getElementById('resumeButton');
+	
+	C5 = document.getElementById('C5');
+	Db5 = document.getElementById('Db5');
+	D5 = document.getElementById('D5');
+	Eb5 = document.getElementById('Eb5');
+	E5 = document.getElementById('E5');
+	F5 = document.getElementById('F5');
+	Gb5 = document.getElementById('Gb5');
+	G5 = document.getElementById('G5');
+	Ab5 = document.getElementById('Ab5');
+	A5 = document.getElementById('A5');
+	Bb5 = document.getElementById('Bb5');
+	B5 = document.getElementById('B5');
+	C6 = document.getElementById('C6');
+	wrongSound = document.getElementById('wrongSound');
+	chromaticScale = [C5,Db5,D5,Eb5,E5,F5,Gb5,G5,Ab5,A5,Bb5,B5,C6];
+	majorScale = [C5,D5,E5,F5,G5,A5,B5,C6];
+	naturalMinorScale = [C5,D5,Eb5,F5,G5,Ab5,Bb5,C6];
+	harmonicMinorScale = [C5,D5,Eb5,F5,G5,Ab5,B5,C6];
+	melodicMinorScale = [C5,D5,Eb5,F5,G5,A5,B5,C6];
+	dorianScale = [C5,D5,Eb5,F5,G5,A5,Bb5,C6];
 	
 	call0 = document.getElementById('call0');
 	call1 = document.getElementById('call1');
@@ -169,16 +207,24 @@ function start() {
 	score = 0;
 	turn = -1;
 	playButton.style.zIndex = 0;
-	playImage.src = "replay.png";
+	playImage.src = "images/replay.png";
 	playImage.style.transform = "scaleX(-1)";
 	playImage.style.left = "-2%";
 	playButton.disabled = true;
 	for (let i = 0; i < 7; i++){
 		calls[i].style.visibility = "hidden";
 		responses[i].style.visibility = "hidden";
-		responses[i].src = "arrow.svg";
+		responses[i].src = "images/arrow.svg";
 	}
 	
+	makeArray();
+	soundType = gameArray.pop();
+	
+	
+	call();
+}
+
+function makeArray(){
 	for (let i = 0; i < 10; i++) {
 		var a = [];
 		
@@ -189,7 +235,10 @@ function start() {
 		gameArray[i] = a;
 	}
 	
-	call();
+	var soundTypes = ["random", "ascending", "descending", "corresponding"];
+	var rand = Math.floor(4 * Math.random());
+	gameArray.push(soundTypes[rand]);
+	
 }
 
 function call() {
@@ -227,6 +276,7 @@ function rotate(n, i) {
 	timer = setTimeout(function(){
 			calls[i].style.transform = "rotate(" + (270 - (90 * n)) + "deg)";
 			calls[i].style.visibility = "visible";
+			bloop(i,n,false);
 	},speed*i);
 }
 
@@ -234,6 +284,7 @@ function response(n) {
 	let c = correct.shift();
 	
 	turn++;
+	bloop(turn,n, n!=c);
 	
 	calls[turn].style.visibility = "visible";
 	
@@ -247,14 +298,14 @@ function response(n) {
 	lights[n].style.backgroundColor = "green";
 	
 	if (n != c){
-		responses[turn].src = "red-arrow.svg";
+		responses[turn].src = "images/red-arrow.svg";
 		lights[n].style.backgroundColor = "red";
 		lights[c].style.backgroundColor= "green";
 		for (let i = 0; i < 4; i++){buttons[i].disabled = true;}
 		for (let i = 0; i <= correct.length; i++) {calls[i].style.visibility = "visible";}
 		//setTimeout(function() {gameOver()},speed);
 		score--;
-	}
+	} 
 	if (correct.length == 0||n != c){
 		score++;
 		
@@ -269,7 +320,7 @@ function response(n) {
 				for (let i = 0; i < 7; i++){
 					calls[i].style.visibility = "hidden";
 					responses[i].style.visibility = "hidden";
-					responses[i].src = "arrow.svg";
+					responses[i].src = "images/arrow.svg";
 				}
 				
 				call();
@@ -282,6 +333,53 @@ function response(n) {
 	
 }
 
+function bloop(increment, rotation, bool){
+	if (mute){
+		return;
+	}
+	
+	if(bool){
+		wrongSound.play();
+		return;
+	}
+	
+	switch(soundType){
+		case "random":
+			dorianScale[rand].load();
+			dorianScale[rand].play();
+		break;
+		case "ascending":
+			dorianScale[increment].load();
+			dorianScale[increment].play();
+		break;
+		case "descending":
+			dorianScale[7-increment].load();
+			dorianScale[7-increment].play();
+		break;
+		case "corresponding":
+			var rand = Math.floor(Math.random() * 8);
+			switch(rotation){
+				case 0:
+					dorianScale[6].load();
+					dorianScale[6].play();
+				break;
+				case 1:
+					dorianScale[4].load();
+					dorianScale[4].play();
+				break;
+				case 2:
+					dorianScale[0].load();
+					dorianScale[0].play();
+				break;
+				case 3:
+					dorianScale[2].load();
+					dorianScale[2].play();
+				break;
+			}
+		break;
+	}
+}
+
 function gameOver() {
 	for (let i = 0; i < 4; i++){
 		lights[i].style.backgroundColor = "transparent";
@@ -290,7 +388,7 @@ function gameOver() {
 	for (let i = 0; i < 7; i++) {
 		calls[i].style.visibility = "hidden";
 		responses[i].style.visibility = "hidden";
-		responses[i].src = "arrow.svg";
+		responses[i].src = "images/arrow.svg";
 	}
 	
 	displayScore.innerHTML += "     GAME OVER";
@@ -305,9 +403,9 @@ function pause() {
 
 function volumeToggle() {
 	if (mute) {
-		volumeImage.src = "volume.svg";
+		volumeImage.src = "images/volume.svg";
 	} else {
-		volumeImage.src = "mute.svg";
+		volumeImage.src = "images/mute.svg";
 	}
 	
 	mute = !mute;

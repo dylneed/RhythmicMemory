@@ -5,19 +5,33 @@
 		<title>Rhythmic Memory</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="rhythm.css" />
-		<script type="text/javascript" src="rhythm.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script type="text/javascript" src="script.js"></script>
 	</head>
 	<body>
+		<audio id="C5"><source src="bloops/C5.mp3" type="audio/mpeg"/></audio>
+		<audio id="Db5"><source src="bloops/Db5.mp3" type="audio/mpeg"/></audio>
+		<audio id="D5"><source src="bloops/D5.mp3" type="audio/mpeg"/></audio>
+		<audio id="Eb5"><source src="bloops/Eb5.mp3" type="audio/mpeg"/></audio>
+		<audio id="E5"><source src="bloops/E5.mp3" type="audio/mpeg"/></audio>
+		<audio id="F5"><source src="bloops/F5.mp3" type="audio/mpeg"/></audio>
+		<audio id="Gb5"><source src="bloops/Gb5.mp3" type="audio/mpeg"/></audio>
+		<audio id="G5"><source src="bloops/G5.mp3" type="audio/mpeg"/></audio>
+		<audio id="Ab5"><source src="bloops/Ab5.mp3" type="audio/mpeg"/></audio>
+		<audio id="A5"><source src="bloops/A5.mp3" type="audio/mpeg"/></audio>
+		<audio id="Bb5"><source src="bloops/Bb5.mp3" type="audio/mpeg"/></audio>
+		<audio id="B5"><source src="bloops/B5.mp3" type="audio/mpeg"/></audio>
+		<audio id="C6"><source src="bloops/C6.mp3" type="audio/mpeg"/></audio>
+		<audio id="wrongSound"><source src="bloops/wrong.mp3" type="audio/mpeg"/></audio>
 		<div id="topBar">
 			<button id="pauseButton" onclick="pause()" />
-				<img id="pauseImage" src="pause.svg">
+				<img id="pauseImage" src="images/pause.svg">
 			</button>
 			<button id="volumeButton" onclick="volumeToggle()">
-				<img id="volumeImage" src="volume.svg" />
+				<img id="volumeImage" src="images/volume.svg" />
 			</button>
 			<button id="helpButton" onclick="help()">
-				<img id="helpImage" src="help.svg" />
+				<img id="helpImage" src="images/help.svg" />
 			</button>
 			<div id="displayScore">SCORE: 0</div>
 		</div>
@@ -26,22 +40,22 @@
 				<button id="resumeButton" onclick="resume()">Resume</button>
 			</div>
 			<div id="callBox">
-				<img id="call0" src="arrow.svg"/>
-				<img id="call1" src="arrow.svg"/>
-				<img id="call2" src="arrow.svg"/>
-				<img id="call3" src="arrow.svg"/>
-				<img id="call4" src="arrow.svg"/>
-				<img id="call5" src="arrow.svg"/>
-				<img id="call6" src="arrow.svg"/>
+				<img id="call0" src="images/arrow.svg"/>
+				<img id="call1" src="images/arrow.svg"/>
+				<img id="call2" src="images/arrow.svg"/>
+				<img id="call3" src="images/arrow.svg"/>
+				<img id="call4" src="images/arrow.svg"/>
+				<img id="call5" src="images/arrow.svg"/>
+				<img id="call6" src="images/arrow.svg"/>
 			</div>
 			<div id="responseBox">
-				<img id="response0" src="arrow.svg"/>
-				<img id="response1" src="arrow.svg"/>
-				<img id="response2" src="arrow.svg"/>
-				<img id="response3" src="arrow.svg"/>
-				<img id="response4" src="arrow.svg"/>
-				<img id="response5" src="arrow.svg"/>
-				<img id="response6" src="arrow.svg"/>
+				<img id="response0" src="images/arrow.svg"/>
+				<img id="response1" src="images/arrow.svg"/>
+				<img id="response2" src="images/arrow.svg"/>
+				<img id="response3" src="images/arrow.svg"/>
+				<img id="response4" src="images/arrow.svg"/>
+				<img id="response5" src="images/arrow.svg"/>
+				<img id="response6" src="images/arrow.svg"/>
 			</div>
 			<div id="dPad">
 				<div id="lightUp"></div>
@@ -49,9 +63,9 @@
 				<div id="lightDown"></div>
 				<div id="lightRight"></div>
 				<button id="playButton" onclick="start()">
-					<img id="playImage"src="play.svg"/>
+					<img id="playImage"src="images/play.svg"/>
 				</button>
-				<img id="controllerPad" src="dpad.svg">
+				<img id="controllerPad" src="images/dpad.svg"/>
 				<button id="buttonUp" onclick="response(0)"></button>
 				<button id="buttonLeft" onclick="response(1)"></button>
 				<button id="buttonDown" onclick="response(2)"></button>
